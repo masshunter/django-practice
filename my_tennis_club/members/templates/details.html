@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<h1> {{mymember.firstName}}  {{mymember.lastName}}</h1>
 
-<p>Phone: {{mymember.phone}}</p>
-<p>Member since: {{mymember.joinedDate}}</p>
+<div class="mycard">
+    <h1> {{mymember.firstName}}  {{mymember.lastName}}</h1>
 
-<p>Back to <a href="/members">Members</a></p>
+    <p>Phone: {{mymember.phone}}</p>
+    <p>Member since: {{mymember.joinedDate}}</p>
+</div>
 
 {% endblock %}
