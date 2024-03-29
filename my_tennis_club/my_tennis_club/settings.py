@@ -1,9 +1,13 @@
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -14,7 +18,7 @@ SECRET_KEY = 'django-insecure-0!wf1z7(5+))s!6x_9@00s^m3vxj4a_hft(@4j_+vwm56j8ifp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['my-second-django-webapp-env.eba-xx8adktn.ap-northeast-2.elasticbeanstalk.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -74,10 +78,10 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'hunter',
-        'PASSWORD': 'john*5817',
-        'HOST': 'hunter-db.c1syw8qsg6c3.ap-northeast-2.rds.amazonaws.com',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
+        'HOST': env('DATABASE_HOST'),
         'PORT': '5432'
     }
 }

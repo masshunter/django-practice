@@ -1,0 +1,13 @@
+lib/
+lib64/
+my_tennis_club/my_tennis_club/.env
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3

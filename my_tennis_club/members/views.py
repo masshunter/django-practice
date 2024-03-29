@@ -4,8 +4,9 @@ from .models import Member
 
 # Create your views here.
 def members(request):
-    mymembers = Member.objects.all().values()
+    mymembers = Member.objects.all().values()  
     template = loader.get_template('all_members.html')
+    
     context = {
         'mymembers': mymembers,
     }
@@ -25,7 +26,9 @@ def main(request):
    return HttpResponse(template.render())
 
 def testing(request):
-    mydata = Member.objects.all().order_by('lastName').values()
+    # mydata = Member.objects.all().order_by('lastName').values()
+    mydata = Mem.objects.all().order_by('lastName').values()
+
     template = loader.get_template('template.html')
     context = {
         'mymembers': mydata,
